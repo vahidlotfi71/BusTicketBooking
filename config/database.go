@@ -22,8 +22,8 @@ func ConnectDB(cfg *Config) (*gorm.DB, error) {
 		Logger: logger.Default.LogMode(logger.Info), // نمایش کوئری‌ها در لاگ
 	})
 	if err != nil {
-		return nil, fmt.Errorf("خطا در اتصال به دیتابیس MySQL: %w", err)
+		return nil, fmt.Errorf("error connecting to MySQL database: %w", err)
 	}
-	log.Println("✅ اتصال به دیتابیس MySQL برقرار شد")
+	log.Println("✅ connection to MySQL database established.")
 	return db, nil
 }

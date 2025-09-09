@@ -30,8 +30,8 @@ type SMSConfig struct {
 }
 
 func LoadConfig() *Config {
-	if err := godotenv.Load(); err != nil {
-		log.Printf("هشدار: فایل .env یافت نشد، از متغیرهای سیستم استفاده می‌شود")
+	if err := godotenv.Load(".env"); err != nil {
+		log.Printf("warning: .env file not found, using system environment variables.")
 	}
 
 	return &Config{
@@ -41,7 +41,7 @@ func LoadConfig() *Config {
 			Port:     getenv("DB_PORT", "3306"),
 			User:     getenv("DB_USER", "root"),
 			Password: getenv("DB_PASSWORD", ""),
-			Name:     getenv("BD_NAME", "ticket_reservation"),
+			Name:     getenv("DB_NAME", "ticket_reservation"),
 			Charset:  getenv("DB_CHARSET", "utf8mb4"),
 		},
 		JWTSecret: getenv("JWT_SECRET", "secret-key"),
