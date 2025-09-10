@@ -31,7 +31,7 @@ type SMSConfig struct {
 
 func LoadConfig() *Config {
 	if err := godotenv.Load(".env"); err != nil {
-		log.Printf("warning: .env file not found, using system environment variables.")
+		log.Printf("warning: .env file not found,using system environment variables.")
 	}
 
 	return &Config{
