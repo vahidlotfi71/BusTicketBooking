@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/vahidlotfi71/BusTicketBooking/config"
 	"github.com/vahidlotfi71/BusTicketBooking/models"
 )
@@ -21,4 +23,8 @@ func main() {
 	if err != nil {
 		log.Fatal("✅ connection to MySQL database established.", err, "\n")
 	}
+
+	// ساخت اپلیکیشن Fiber
+	app := fiber.New()
+	app.Use(cors.New())
 }
